@@ -4,8 +4,7 @@ Browser-based smart factory demonstrator for a simulated packaging cell. The app
 
 ## Live Demo
 
-Add the GitHub Pages URL here after the first deployment.
-
+https://avi-patel-1.github.io/Smart-Factory-Digital-Twin/
 ## Quickstart
 
 ```bash

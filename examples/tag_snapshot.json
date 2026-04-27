@@ -1,0 +1,29 @@
+[
+  {
+    "name": "MTR_CONV_RUN",
+    "type": "BOOL",
+    "value": false,
+    "source": "PLC output",
+    "description": "Conveyor motor run command",
+    "lastChanged": "T+28s",
+    "quality": "Good"
+  },
+  {
+    "name": "ALM_MOTOR_OVERLOAD",
+    "type": "BOOL",
+    "value": true,
+    "source": "PLC alarm",
+    "description": "Motor overload alarm bit",
+    "lastChanged": "T+28s",
+    "quality": "Good"
+  },
+  {
+    "name": "OEE_OVERALL",
+    "type": "REAL",
+    "value": 0.56,
+    "source": "Edge calculation",
+    "description": "Overall OEE value",
+    "lastChanged": "T+30s",
+    "quality": "Good"
+  }
+]

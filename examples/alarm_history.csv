@@ -1,0 +1,2 @@
+"timestamp","tag","message","severity","active","acknowledged","root cause hint","recovery steps","effect"
+"T+28s","ALM_MOTOR_OVERLOAD","Conveyor motor overload","critical","true","false","Drive current exceeded the overload delay while the conveyor was commanded to run.","Inspect conveyor load, let the drive recover, then press Reset.","Machine enters fault state and removes motor run output."

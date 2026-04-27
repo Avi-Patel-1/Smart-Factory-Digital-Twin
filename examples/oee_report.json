@@ -1,0 +1,27 @@
+{
+  "scenario": "Motor overload event",
+  "elapsedRuntime": "30s",
+  "counts": {
+    "goodParts": 4,
+    "rejects": 0,
+    "totalParts": 4
+  },
+  "oee": {
+    "availability": 0.9,
+    "performance": 0.622,
+    "quality": 1,
+    "overall": 0.56
+  },
+  "downtime": {
+    "unplannedMs": 3000,
+    "reasons": {
+      "ALM_MOTOR_OVERLOAD": 1
+    }
+  },
+  "maintenance": {
+    "motorRuntimeMs": 24000,
+    "jamCount": 0,
+    "mtbfMs": 27000,
+    "mttrMs": 3000
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "shiftSummary": {
+    "run_id": "packaging-cell-shift-a",
+    "line_name": "Packaging Cell A",
+    "scenario": "sample shift with jams and quality drift",
+    "started_at": "2026-04-27T08:00:00",
+    "ended_at": "2026-04-27T11:00:00",
+    "good_parts": 906,
+    "rejects": 48,
+    "total_parts": 954,
+    "avg_availability": 0.9157,
+    "avg_performance": 0.7993,
+    "avg_quality": 0.9643,
+    "avg_oee": 0.7059,
+    "downtime_seconds": 1260.0,
+    "avg_throughput_ppm": 5.49
+  },
+  "alarmDowntime": [
+    {
+      "reason": "motor overload",
+      "eventCount": 1,
+      "durationSeconds": 540.0
+    },
+    {
+      "reason": "infeed jam",
+      "eventCount": 1,
+      "durationSeconds": 420.0
+    },
+    {
+      "reason": "reject gate delay",
+      "eventCount": 1,
+      "durationSeconds": 300.0
+    }
+  ],
+  "latestTags": [
+    {
+      "name": "CNT_GOOD_PARTS",
+      "value": "906",
+      "type": "DINT",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "CNT_REJECTS",
+      "value": "48",
+      "type": "DINT",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "CYL_REJECT_EXT",
+      "value": "false",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "MOTOR_CURRENT_A",
+      "value": "2.63",
+      "type": "REAL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "MTR_CONV_RUN",
+      "value": "true",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "OEE_OVERALL",
+      "value": "0.67111",
+      "type": "REAL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "PE_DISCHARGE_CLEAR",
+      "value": "false",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "PE_INFEED_BLOCKED",
+      "value": "false",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "STATE_NAME",
+      "value": "infeed",
+      "type": "STRING",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    }
+  ]
+}

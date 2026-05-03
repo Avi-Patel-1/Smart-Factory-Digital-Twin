@@ -2,6 +2,8 @@
 
 Browser-based smart factory demonstrator for a simulated packaging cell. The app runs as a static Vite site and includes PLC-style scan logic, live HMI screens, a digital twin, alarms, trends, maintenance views, tag browsing, manual controls, production reports, and exportable data.
 
+The project also includes a Python/SQLite historian pipeline that generates sample packaging-cell scan, tag, alarm, production, and OEE data. It exports static JSON/CSV files into `public/data/` so the dashboard can show generated historian summaries while still deploying as a static site.
+
 ## Live Demo
 
 https://avi-patel-1.github.io/Smart-Factory-Digital-Twin/
@@ -9,6 +11,8 @@ https://avi-patel-1.github.io/Smart-Factory-Digital-Twin/
 
 ```bash
 npm install
+npm run data:historian
+npm run test:py
 npm run dev
 npm run build
 npm run test
@@ -23,6 +27,7 @@ npm run preview
 - Scenario presets for normal production, high reject rate, infeed jams, motor overload, stuck photoeye, reject gate failure, maintenance recovery, and quality drift.
 - OEE breakdown with availability, performance, quality, planned runtime, unplanned downtime, ideal cycle time, actual cycle time, MTBF, and MTTR.
 - CSV, JSON, and Markdown export buttons for alarm history, production summaries, tag snapshots, OEE reports, and scenario reports.
+- A generated SQLite historian with dashboard-ready static JSON/CSV exports under `public/data/`.
 
 ## Screens
 
@@ -40,7 +45,9 @@ npm run preview
 
 The simulated field devices feed PLC tags. The PLC scan evaluates state logic, timers, counters, alarms, and output commands. HMI/SCADA screens display the live tag state. Historian points and sensor transitions support trends, while edge calculations turn downtime, throughput, and quality data into OEE and maintenance indicators.
 
-More detail is in `docs/architecture.md`, `docs/plc_logic.md`, and `docs/oee_metrics.md`.
+The Python pipeline in `analytics/historian/` creates `examples/packaging_cell_historian.sqlite`, runs SQL analysis, and writes static dashboard data into `public/data/`. The Production Report screen reads `public/data/historian_summary.json` when the site is served.
+
+More detail is in `docs/architecture.md`, `docs/plc_logic.md`, `docs/oee_metrics.md`, and `docs/historian_pipeline.md`.
 
 ## GitHub Pages Deployment
 
@@ -59,6 +66,7 @@ See `docs/deployment.md` for command details.
 - `docs/scenario_reference.md`
 - `docs/deployment.md`
 - `docs/data_exports.md`
+- `docs/historian_pipeline.md`
 
 ## License
 

@@ -24,10 +24,18 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: 24
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
       - name: Install dependencies
         run: npm install
       - name: Test
         run: npm run test
+      - name: Test historian pipeline
+        run: npm run test:py
+      - name: Generate static historian data
+        run: npm run data:historian
       - name: Build
         run: npm run build
       - name: Upload Pages artifact

@@ -7,10 +7,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "data:historian": "python3 -m analytics.historian.pipeline",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:py": "python3 -m unittest discover -s analytics/tests"
   },
   "dependencies": {
     "react": "^19.2.5",

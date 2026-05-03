@@ -1,0 +1,564 @@
+{
+  "metadata": {
+    "runId": "packaging-cell-shift-a",
+    "lineName": "Packaging Cell A",
+    "scenario": "sample shift with jams and quality drift",
+    "generatedAt": "2026-04-27T11:00:00",
+    "database": "examples/packaging_cell_historian.sqlite"
+  },
+  "kpis": {
+    "goodParts": 906,
+    "rejects": 48,
+    "totalParts": 954,
+    "availability": 0.9157,
+    "performance": 0.7993,
+    "quality": 0.9643,
+    "oee": 0.7059,
+    "downtimeSeconds": 1260.0,
+    "throughputPpm": 5.49
+  },
+  "oeeTrend": [
+    {
+      "sampleTime": "2026-04-27T08:00:00",
+      "oee": 0.0,
+      "availability": 1.0,
+      "performance": 0.0,
+      "quality": 1.0,
+      "throughputPpm": 0.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:05:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:10:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:15:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:20:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:25:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:30:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:35:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:40:00",
+      "oee": 0.77333,
+      "availability": 1.0,
+      "performance": 0.8,
+      "quality": 0.96667,
+      "throughputPpm": 6.0,
+      "downtimeSeconds": 0.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:45:00",
+      "oee": 0.72,
+      "availability": 0.92963,
+      "performance": 0.8,
+      "quality": 0.96813,
+      "throughputPpm": 5.578,
+      "downtimeSeconds": 190.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:50:00",
+      "oee": 0.66667,
+      "availability": 0.86,
+      "performance": 0.8,
+      "quality": 0.96899,
+      "throughputPpm": 5.16,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T08:55:00",
+      "oee": 0.67636,
+      "availability": 0.87273,
+      "performance": 0.8,
+      "quality": 0.96875,
+      "throughputPpm": 5.236,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:00:00",
+      "oee": 0.68444,
+      "availability": 0.88333,
+      "performance": 0.8,
+      "quality": 0.96855,
+      "throughputPpm": 5.3,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:05:00",
+      "oee": 0.69128,
+      "availability": 0.89231,
+      "performance": 0.8,
+      "quality": 0.96839,
+      "throughputPpm": 5.354,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:10:00",
+      "oee": 0.69714,
+      "availability": 0.9,
+      "performance": 0.8,
+      "quality": 0.96825,
+      "throughputPpm": 5.4,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:15:00",
+      "oee": 0.70222,
+      "availability": 0.90667,
+      "performance": 0.8,
+      "quality": 0.96814,
+      "throughputPpm": 5.44,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:20:00",
+      "oee": 0.70667,
+      "availability": 0.9125,
+      "performance": 0.8,
+      "quality": 0.96804,
+      "throughputPpm": 5.475,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:25:00",
+      "oee": 0.70902,
+      "availability": 0.91765,
+      "performance": 0.8,
+      "quality": 0.96581,
+      "throughputPpm": 5.506,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:30:00",
+      "oee": 0.71111,
+      "availability": 0.92222,
+      "performance": 0.8,
+      "quality": 0.96386,
+      "throughputPpm": 5.533,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:35:00",
+      "oee": 0.71439,
+      "availability": 0.92632,
+      "performance": 0.8,
+      "quality": 0.96402,
+      "throughputPpm": 5.558,
+      "downtimeSeconds": 420.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:40:00",
+      "oee": 0.68533,
+      "availability": 0.88833,
+      "performance": 0.8,
+      "quality": 0.96435,
+      "throughputPpm": 5.33,
+      "downtimeSeconds": 670.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:45:00",
+      "oee": 0.6819,
+      "availability": 0.88571,
+      "performance": 0.8,
+      "quality": 0.96237,
+      "throughputPpm": 5.314,
+      "downtimeSeconds": 720.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:50:00",
+      "oee": 0.68606,
+      "availability": 0.89091,
+      "performance": 0.8,
+      "quality": 0.96259,
+      "throughputPpm": 5.345,
+      "downtimeSeconds": 720.0
+    },
+    {
+      "sampleTime": "2026-04-27T09:55:00",
+      "oee": 0.6887,
+      "availability": 0.89565,
+      "performance": 0.8,
+      "quality": 0.96117,
+      "throughputPpm": 5.374,
+      "downtimeSeconds": 720.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:00:00",
+      "oee": 0.69222,
+      "availability": 0.9,
+      "performance": 0.8,
+      "quality": 0.96142,
+      "throughputPpm": 5.4,
+      "downtimeSeconds": 720.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:05:00",
+      "oee": 0.6944,
+      "availability": 0.904,
+      "performance": 0.8,
+      "quality": 0.96018,
+      "throughputPpm": 5.424,
+      "downtimeSeconds": 720.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:10:00",
+      "oee": 0.69538,
+      "availability": 0.90769,
+      "performance": 0.8,
+      "quality": 0.95763,
+      "throughputPpm": 5.446,
+      "downtimeSeconds": 720.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:15:00",
+      "oee": 0.68049,
+      "availability": 0.88765,
+      "performance": 0.8,
+      "quality": 0.95828,
+      "throughputPpm": 5.326,
+      "downtimeSeconds": 910.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:20:00",
+      "oee": 0.65619,
+      "availability": 0.85595,
+      "performance": 0.8,
+      "quality": 0.95828,
+      "throughputPpm": 5.136,
+      "downtimeSeconds": 1210.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:25:00",
+      "oee": 0.65563,
+      "availability": 0.85517,
+      "performance": 0.8,
+      "quality": 0.95833,
+      "throughputPpm": 5.131,
+      "downtimeSeconds": 1260.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:30:00",
+      "oee": 0.65778,
+      "availability": 0.86,
+      "performance": 0.8,
+      "quality": 0.95607,
+      "throughputPpm": 5.16,
+      "downtimeSeconds": 1260.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:35:00",
+      "oee": 0.66065,
+      "availability": 0.86452,
+      "performance": 0.8,
+      "quality": 0.95522,
+      "throughputPpm": 5.187,
+      "downtimeSeconds": 1260.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:40:00",
+      "oee": 0.66333,
+      "availability": 0.86875,
+      "performance": 0.8,
+      "quality": 0.95444,
+      "throughputPpm": 5.213,
+      "downtimeSeconds": 1260.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:45:00",
+      "oee": 0.66505,
+      "availability": 0.87273,
+      "performance": 0.8,
+      "quality": 0.95255,
+      "throughputPpm": 5.236,
+      "downtimeSeconds": 1260.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:50:00",
+      "oee": 0.66745,
+      "availability": 0.87647,
+      "performance": 0.8,
+      "quality": 0.9519,
+      "throughputPpm": 5.259,
+      "downtimeSeconds": 1260.0
+    },
+    {
+      "sampleTime": "2026-04-27T10:55:00",
+      "oee": 0.66971,
+      "availability": 0.88,
+      "performance": 0.8,
+      "quality": 0.9513,
+      "throughputPpm": 5.28,
+      "downtimeSeconds": 1260.0
+    },
+    {
+      "sampleTime": "2026-04-27T11:00:00",
+      "oee": 0.67111,
+      "availability": 0.88333,
+      "performance": 0.8,
+      "quality": 0.94969,
+      "throughputPpm": 5.3,
+      "downtimeSeconds": 1260.0
+    }
+  ],
+  "alarms": [
+    {
+      "tag": "ALM_INFEED_JAM",
+      "raisedAt": "2026-04-27T08:42:00",
+      "clearedAt": "2026-04-27T08:49:00",
+      "severity": "warning",
+      "message": "Infeed photoeye blocked longer than expected",
+      "downtimeReason": "infeed jam",
+      "durationSeconds": 420.0
+    },
+    {
+      "tag": "ALM_REJECT_GATE",
+      "raisedAt": "2026-04-27T09:36:00",
+      "clearedAt": "2026-04-27T09:41:00",
+      "severity": "warning",
+      "message": "Reject gate response time exceeded limit",
+      "downtimeReason": "reject gate delay",
+      "durationSeconds": 300.0
+    },
+    {
+      "tag": "ALM_MOTOR_OVERLOAD",
+      "raisedAt": "2026-04-27T10:12:00",
+      "clearedAt": "2026-04-27T10:21:00",
+      "severity": "critical",
+      "message": "Conveyor drive current exceeded trip threshold",
+      "downtimeReason": "motor overload",
+      "durationSeconds": 540.0
+    }
+  ],
+  "downtimeReasons": [
+    {
+      "reason": "motor overload",
+      "eventCount": 1,
+      "durationSeconds": 540.0
+    },
+    {
+      "reason": "infeed jam",
+      "eventCount": 1,
+      "durationSeconds": 420.0
+    },
+    {
+      "reason": "reject gate delay",
+      "eventCount": 1,
+      "durationSeconds": 300.0
+    }
+  ],
+  "tagSnapshot": [
+    {
+      "name": "CNT_GOOD_PARTS",
+      "value": "906",
+      "type": "DINT",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "CNT_REJECTS",
+      "value": "48",
+      "type": "DINT",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "CYL_REJECT_EXT",
+      "value": "false",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "MOTOR_CURRENT_A",
+      "value": "2.63",
+      "type": "REAL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "MTR_CONV_RUN",
+      "value": "true",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "OEE_OVERALL",
+      "value": "0.67111",
+      "type": "REAL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "PE_DISCHARGE_CLEAR",
+      "value": "false",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "PE_INFEED_BLOCKED",
+      "value": "false",
+      "type": "BOOL",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    },
+    {
+      "name": "STATE_NAME",
+      "value": "infeed",
+      "type": "STRING",
+      "quality": "Good",
+      "sampleTime": "2026-04-27T11:00:00"
+    }
+  ],
+  "recentScans": [
+    {
+      "sampleTime": "2026-04-27T10:58:10",
+      "scanNumber": 1069,
+      "machineState": "index conveyor",
+      "activeStation": "Conveyor",
+      "cycleTimeMs": 8175.0,
+      "motorCurrentA": 2.96
+    },
+    {
+      "sampleTime": "2026-04-27T10:58:20",
+      "scanNumber": 1070,
+      "machineState": "inspect",
+      "activeStation": "Vision inspection",
+      "cycleTimeMs": 8290.0,
+      "motorCurrentA": 2.93
+    },
+    {
+      "sampleTime": "2026-04-27T10:58:30",
+      "scanNumber": 1071,
+      "machineState": "accept",
+      "activeStation": "Accept lane",
+      "cycleTimeMs": 7600.0,
+      "motorCurrentA": 2.9
+    },
+    {
+      "sampleTime": "2026-04-27T10:58:40",
+      "scanNumber": 1072,
+      "machineState": "reject",
+      "activeStation": "Reject lane",
+      "cycleTimeMs": 7715.0,
+      "motorCurrentA": 2.87
+    },
+    {
+      "sampleTime": "2026-04-27T10:58:50",
+      "scanNumber": 1073,
+      "machineState": "discharge",
+      "activeStation": "Discharge",
+      "cycleTimeMs": 7830.0,
+      "motorCurrentA": 2.84
+    },
+    {
+      "sampleTime": "2026-04-27T10:59:00",
+      "scanNumber": 1074,
+      "machineState": "infeed",
+      "activeStation": "Infeed",
+      "cycleTimeMs": 7945.0,
+      "motorCurrentA": 2.81
+    },
+    {
+      "sampleTime": "2026-04-27T10:59:10",
+      "scanNumber": 1075,
+      "machineState": "index conveyor",
+      "activeStation": "Conveyor",
+      "cycleTimeMs": 8060.0,
+      "motorCurrentA": 2.78
+    },
+    {
+      "sampleTime": "2026-04-27T10:59:20",
+      "scanNumber": 1076,
+      "machineState": "inspect",
+      "activeStation": "Vision inspection",
+      "cycleTimeMs": 8175.0,
+      "motorCurrentA": 2.75
+    },
+    {
+      "sampleTime": "2026-04-27T10:59:30",
+      "scanNumber": 1077,
+      "machineState": "accept",
+      "activeStation": "Accept lane",
+      "cycleTimeMs": 8290.0,
+      "motorCurrentA": 2.72
+    },
+    {
+      "sampleTime": "2026-04-27T10:59:40",
+      "scanNumber": 1078,
+      "machineState": "reject",
+      "activeStation": "Reject lane",
+      "cycleTimeMs": 7600.0,
+      "motorCurrentA": 2.69
+    },
+    {
+      "sampleTime": "2026-04-27T10:59:50",
+      "scanNumber": 1079,
+      "machineState": "discharge",
+      "activeStation": "Discharge",
+      "cycleTimeMs": 7715.0,
+      "motorCurrentA": 2.66
+    },
+    {
+      "sampleTime": "2026-04-27T11:00:00",
+      "scanNumber": 1080,
+      "machineState": "infeed",
+      "activeStation": "Infeed",
+      "cycleTimeMs": 7830.0,
+      "motorCurrentA": 2.63
+    }
+  ]
+}

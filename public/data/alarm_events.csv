@@ -1,0 +1,4 @@
+tag,raisedAt,clearedAt,severity,message,downtimeReason,durationSeconds
+ALM_INFEED_JAM,2026-04-27T08:42:00,2026-04-27T08:49:00,warning,Infeed photoeye blocked longer than expected,infeed jam,420.0
+ALM_REJECT_GATE,2026-04-27T09:36:00,2026-04-27T09:41:00,warning,Reject gate response time exceeded limit,reject gate delay,300.0
+ALM_MOTOR_OVERLOAD,2026-04-27T10:12:00,2026-04-27T10:21:00,critical,Conveyor drive current exceeded trip threshold,motor overload,540.0

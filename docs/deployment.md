@@ -6,7 +6,9 @@ The project is configured for GitHub Pages as a static Vite site.
 
 ```bash
 npm install
+npm run data:historian
 npm run dev
+npm run test:py
 npm run test
 npm run build
 npm run preview
@@ -14,7 +16,7 @@ npm run preview
 
 ## GitHub Pages Workflow
 
-The workflow at `.github/workflows/deploy.yml` installs dependencies, runs tests, builds the project, uploads `dist`, and deploys to GitHub Pages.
+The workflow at `.github/workflows/deploy.yml` installs dependencies, runs tests, generates static historian data, builds the project, uploads `dist`, and deploys to GitHub Pages.
 
 Repository setup:
 
@@ -23,6 +25,8 @@ Repository setup:
 3. Enable Pages.
 4. Choose GitHub Actions as the Pages source.
 5. Push to `main` or run the workflow manually.
+
+Files in `public/data/` are copied to `dist/data/` during the Vite build. The Python historian step refreshes those static JSON/CSV files before Pages publishes the site.
 
 ## Vite Base Path
 

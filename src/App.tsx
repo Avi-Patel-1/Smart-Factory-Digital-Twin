@@ -8,6 +8,7 @@ import { TagBrowser } from './screens/TagBrowser'
 import { ManualControls } from './screens/ManualControls'
 import { ProductionReport } from './screens/ProductionReport'
 import { ArchitecturePage } from './screens/ArchitecturePage'
+import { FlowDiagram } from './screens/FlowDiagram'
 import { MethodologyPage } from './screens/MethodologyPage'
 import { applyOperatorAction, createInitialSimulationState, scanCycle, stepScan } from './plc/scanCycle'
 import { scenarioPresets } from './simulation/scenarios'
@@ -25,6 +26,7 @@ type ScreenId =
   | 'manual'
   | 'report'
   | 'architecture'
+  | 'flow'
   | 'methodology'
 
 const screens: Array<{ id: ScreenId; label: string }> = [
@@ -37,6 +39,7 @@ const screens: Array<{ id: ScreenId; label: string }> = [
   { id: 'manual', label: 'Manual Controls' },
   { id: 'report', label: 'Production Report' },
   { id: 'architecture', label: 'Architecture' },
+  { id: 'flow', label: 'Flow' },
   { id: 'methodology', label: 'Methodology' },
 ]
 
@@ -60,6 +63,7 @@ function renderScreen(
   }
   if (screen === 'report') return <ProductionReport state={state} />
   if (screen === 'architecture') return <ArchitecturePage />
+  if (screen === 'flow') return <FlowDiagram />
   if (screen === 'methodology') return <MethodologyPage />
   return <HmiOverview state={state} dispatch={dispatch} />
 }

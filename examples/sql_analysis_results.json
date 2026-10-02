@@ -8,12 +8,12 @@
     "good_parts": 906,
     "rejects": 48,
     "total_parts": 954,
-    "avg_availability": 0.9157,
-    "avg_performance": 0.7993,
-    "avg_quality": 0.9643,
-    "avg_oee": 0.7059,
+    "availability": 0.88333,
+    "performance": 0.8,
+    "quality": 0.94969,
+    "oee": 0.67111,
     "downtime_seconds": 1260.0,
-    "avg_throughput_ppm": 5.49
+    "throughput_ppm": 5.3
   },
   "alarmDowntime": [
     {

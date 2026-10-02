@@ -1,8 +1,12 @@
+# Cell Studio
+
+The entry workspace includes a selectable isometric cell, live signal inspector, operator commands, active alarms, cause timeline, seek/bookmark/branch controls, versioned recipes and deterministic comparisons. The guided run computes and bookmarks sixty logical seconds. The comparison timeline independently reconstructs both 180-second experiments and displays the baseline as lavender ghosts.
+
 # HMI Screens
 
 ## HMI Overview
 
-The first screen is the working dashboard. It contains start, stop, E-Stop, reset, auto/manual mode, conveyor and motor status, sensor states, counts, cycle time, throughput, alarm banner, active station, and operator instructions.
+Cell Studio is the entry workspace; HMI Overview remains the detailed operator dashboard. It contains start, stop, E-Stop, reset, auto/manual mode, conveyor and motor status, sensor states, counts, cycle time, throughput, alarm banner, active station, and operator instructions.
 
 ## Digital Twin View
 

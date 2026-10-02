@@ -141,8 +141,8 @@ export function MethodologyPage() {
             <h2>OEE math</h2>
             <span>Loss model</span>
           </div>
-          <p>Availability = operating time / planned runtime. Blocked, fault, recovery, and maintenance-stop time reduce availability.</p>
-          <p>Performance = ideal cycle time x total parts / operating time. Slow package flow or long stops reduce performance.</p>
+          <p>Availability = operating time / planned runtime. Fault, recovery, manual work and waiting for restart reduce availability inside a scheduled production window. Declared maintenance is excluded from planned runtime.</p>
+          <p>Performance = ideal cycle time x total parts / operating time. Slow package flow and normal station dwell reduce performance; unplanned stops are already removed from operating time.</p>
           <p>Quality = good parts / total parts. Rejects reduce quality while still counting toward total production.</p>
           <p>OEE = availability x performance x quality, calculated in <code>src/simulation/oee.ts</code>.</p>
         </div>

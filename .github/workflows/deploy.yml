@@ -27,15 +27,15 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.x'
+          python-version: '3.12'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+      - name: Lint
+        run: npm run lint
       - name: Test
         run: npm run test
       - name: Test historian pipeline
         run: npm run test:py
-      - name: Generate static historian data
-        run: npm run data:historian
       - name: Build
         run: npm run build
       - name: Upload Pages artifact

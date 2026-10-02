@@ -1,27 +1,27 @@
 {
-  "scenario": "Motor overload event",
-  "elapsedRuntime": "30s",
+  "scenario": "Normal production",
+  "elapsedRuntime": "1m 00s",
   "counts": {
-    "goodParts": 4,
-    "rejects": 0,
-    "totalParts": 4
+    "goodParts": 12,
+    "rejects": 1,
+    "totalParts": 13
   },
   "oee": {
-    "availability": 0.9,
-    "performance": 0.622,
-    "quality": 1,
-    "overall": 0.56
+    "availability": 0.8166666666666667,
+    "performance": 1,
+    "quality": 0.9230769230769231,
+    "overall": 0.7538461538461538
   },
   "downtime": {
-    "unplannedMs": 3000,
+    "unplannedMs": 11000,
     "reasons": {
-      "ALM_MOTOR_OVERLOAD": 1
+      "ALM_JAM_INFEED": 1
     }
   },
   "maintenance": {
-    "motorRuntimeMs": 24000,
-    "jamCount": 0,
-    "mtbfMs": 27000,
-    "mttrMs": 3000
+    "motorRuntimeMs": 25000,
+    "jamCount": 1,
+    "mtbfMs": 49000,
+    "mttrMs": 11000
   }
 }

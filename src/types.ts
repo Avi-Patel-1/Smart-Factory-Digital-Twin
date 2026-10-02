@@ -60,6 +60,7 @@ export type ScenarioEventType =
   | 'rejectGateFailure'
   | 'compressedAirLoss'
   | 'maintenanceStop'
+  | 'slowActuator'
 
 export interface ScenarioEvent {
   type: ScenarioEventType
@@ -79,6 +80,17 @@ export interface ScenarioPreset {
   conveyorUnitsPerSecond: number
   events: ScenarioEvent[]
   recommendation: string
+  inspectionMode?: 'simulated' | 'external'
+}
+
+export interface InspectionResult {
+  schemaVersion: 1
+  eventId: string
+  frameId: string
+  packageId: number
+  capturedAtMs: number
+  decision: 'accept' | 'reject'
+  score: number
 }
 
 export interface PackageItem {
@@ -112,6 +124,8 @@ export interface CounterBank {
   jamCount: number
   motorRuntimeMs: number
   recoveryEvents: number
+  plannedRuntimeMs: number
+  plannedStopMs: number
 }
 
 export interface OeeMetrics {
@@ -162,11 +176,20 @@ export interface ScanPhase {
   status: string
 }
 
+export interface CellEvent {
+  id: number
+  timeMs: number
+  category: 'command' | 'transition' | 'alarm' | 'production'
+  message: string
+}
+
 export interface SimulationState {
   elapsedMs: number
   scanTimeMs: number
   runRequested: boolean
   emergencyStop: boolean
+  resetRequired: boolean
+  productionScheduled: boolean
   mode: MachineMode
   machineState: MachineState
   previousMachineState: MachineState
@@ -184,12 +207,17 @@ export interface SimulationState {
   manual: ManualState
   scanPhases: ScanPhase[]
   nextPackageId: number
+  events: CellEvent[]
+  nextEventId: number
+  stateDurationsMs: Partial<Record<MachineState, number>>
+  inspectionResults: InspectionResult[]
 }
 
 export type OperatorAction =
   | { type: 'start' }
   | { type: 'stop' }
   | { type: 'emergencyStop' }
+  | { type: 'releaseEmergencyStop' }
   | { type: 'reset' }
   | { type: 'setMode'; mode: MachineMode }
   | { type: 'setScenario'; scenarioId: string }
@@ -198,3 +226,6 @@ export type OperatorAction =
   | { type: 'setJog'; enabled: boolean }
   | { type: 'setRejectGate'; enabled: boolean }
   | { type: 'forceSensor'; tag: string; value: boolean | undefined }
+  | { type: 'injectFault'; fault: ScenarioEventType; durationMs: number }
+  | { type: 'clearFault'; fault: ScenarioEventType }
+  | { type: 'inspectionResult'; result: InspectionResult }

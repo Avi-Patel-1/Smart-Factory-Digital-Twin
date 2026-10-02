@@ -300,7 +300,7 @@ def relative_database_label(database_path: Path) -> str:
     try:
         return str(database_path.relative_to(REPO_ROOT))
     except ValueError:
-        return str(database_path)
+        return database_path.name
 
 
 def export_dashboard_data(connection: sqlite3.Connection, data_dir: Path, examples_dir: Path, database_path: Path) -> None:
@@ -369,12 +369,12 @@ def export_dashboard_data(connection: sqlite3.Connection, data_dir: Path, exampl
             "goodParts": summary["good_parts"],
             "rejects": summary["rejects"],
             "totalParts": summary["total_parts"],
-            "availability": summary["avg_availability"],
-            "performance": summary["avg_performance"],
-            "quality": summary["avg_quality"],
-            "oee": summary["avg_oee"],
+            "availability": summary["availability"],
+            "performance": summary["performance"],
+            "quality": summary["quality"],
+            "oee": summary["oee"],
             "downtimeSeconds": summary["downtime_seconds"],
-            "throughputPpm": summary["avg_throughput_ppm"],
+            "throughputPpm": summary["throughput_ppm"],
         },
         "oeeTrend": oee_trend,
         "alarms": alarms,

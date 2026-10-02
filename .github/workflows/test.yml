@@ -1,0 +1,27 @@
+name: Verify cell runtime
+
+on:
+  pull_request:
+  push:
+    branches-ignore: ['main']
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run test:py
+      - run: npm run build

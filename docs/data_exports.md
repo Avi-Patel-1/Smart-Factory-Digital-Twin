@@ -33,4 +33,8 @@ The Python pipeline writes dashboard-ready artifacts that are served with the st
 - `public/data/alarm_events.csv`
 - `public/data/tag_snapshot.csv`
 
-Run `npm run data:historian` to regenerate them from `examples/packaging_cell_historian.sqlite`. The SQL source files are in `analytics/historian/schema.sql` and `analytics/historian/queries.sql`.
+Run `npm run data:historian` to replace the example database from the deterministic Python fixture and regenerate these exports. The SQL source files are in `analytics/historian/schema.sql` and `analytics/historian/queries.sql`.
+
+## Reconstructable runs and recipes
+
+The top toolbar exports a complete versioned run: initial recipe, scan count, ordered commands and bookmarks. Import validates it and reconstructs state. It does not trust stored counters. Recipes use a separate schema-1 wrapper. Comparison exports include baseline/candidate run bundles and both controlled intervention bundles. Import any constituent bundle through Import run to reconstruct it independently. See [run contract](run_contract.md).

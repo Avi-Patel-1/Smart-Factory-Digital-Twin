@@ -91,13 +91,14 @@ SELECT
   MAX(p.good_parts) AS good_parts,
   MAX(p.rejects) AS rejects,
   MAX(p.total_parts) AS total_parts,
-  ROUND(AVG(o.availability), 4) AS avg_availability,
-  ROUND(AVG(o.performance), 4) AS avg_performance,
-  ROUND(AVG(o.quality), 4) AS avg_quality,
-  ROUND(AVG(o.overall_oee), 4) AS avg_oee,
+  o.availability AS availability,
+  o.performance AS performance,
+  o.quality AS quality,
+  o.overall_oee AS oee,
   ROUND(MAX(o.unplanned_downtime_seconds), 1) AS downtime_seconds,
-  ROUND(AVG(o.throughput_ppm), 2) AS avg_throughput_ppm
+  o.throughput_ppm AS throughput_ppm
 FROM historian_runs r
 JOIN production_counts p ON p.run_id = r.run_id
 JOIN oee_samples o ON o.run_id = r.run_id AND o.scan_number = p.scan_number
+WHERE o.scan_number = (SELECT MAX(final.scan_number) FROM oee_samples final WHERE final.run_id = r.run_id)
 GROUP BY r.run_id;

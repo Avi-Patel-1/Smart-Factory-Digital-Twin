@@ -1,73 +1,94 @@
-# Smart Factory Digital Twin & PLC/HMI Demonstrator
+# Factory Cell Studio
 
-Browser-based smart factory demonstrator for a simulated packaging cell. The app runs as a static Vite site and includes PLC-style scan logic, live HMI screens, a digital twin, alarms, trends, maintenance views, tag browsing, manual controls, production reports, and exportable data.
+An interactive packaging-cell simulator for tracing a production problem from sensor input to machine state, actuator output and lost production.
 
-The project also includes a Python/SQLite historian pipeline that generates sample packaging-cell scan, tag, alarm, production, and OEE data. It exports static JSON/CSV files into `public/data/` so the dashboard can show generated historian summaries while still deploying as a static site.
+[Open the live cell](https://avi-patel-1.github.io/Smart-Factory-Digital-Twin/)
 
-## Live Demo
+The isometric workspace runs the actual simulation in your browser. Select a station to inspect its signal, inject a jam, follow the reset sequence, and replay the exact commands that produced the result. No account or backend is required.
 
-https://avi-patel-1.github.io/Smart-Factory-Digital-Twin/
-## Quickstart
+![The packaging cell, signal inspector and production metrics](docs/images/cell-studio.png)
 
-```bash
-npm install
-npm run data:historian
-npm run test:py
-npm run dev
-npm run build
-npm run test
-npm run preview
+## Try a complete run
+
+1. Choose **Run the 60-second walkthrough**. The app computes a seeded run and pauses at the jam.
+2. Follow the bookmarks through condition clearance, Reset, separate Start and the final result. Select the conveyor or a sensor to inspect the recorded value.
+3. Use the timeline to seek, or **Branch from here** to try a different response. **Return to live** returns to the run endpoint with the clock paused.
+4. **Save run**, then reload. The run is rebuilt from its recipe and command log. **Export run** produces a JSON file that can be imported into a clean browser.
+5. **Edit a new recipe**, change speed or reject probability, then **Compute comparison**. The 180-second baseline/candidate experiments include identical recovery rules, output and downtime comparisons, controlled transport/disturbance interventions, and a separate timeline with ghosted trajectories. **Export both runs** includes all four experiments.
+
+**Emergency Stop → release physical input → clear other conditions → Reset → wait 2.6 seconds → Start.** Start never clears a stop. Reset never starts motion. Manual jogging obeys interlocks and holds uninspected/rejected products at their stations.
+
+## Run locally
+
+Use Node.js 24 or 25, npm, Git, and Python 3.12. Python uses only the standard library. macOS arm64 is exercised locally; CI runs the automated checks on Linux with Node 24.
+
+```sh
+git clone https://github.com/Avi-Patel-1/Smart-Factory-Digital-Twin.git
+cd Smart-Factory-Digital-Twin
+npm ci
+npm run dev -- --host 127.0.0.1 --port 5173 --strictPort
 ```
 
-## What It Shows
+Open `http://127.0.0.1:5173/`. Stop the server with Ctrl-C. Existing saved runs and recipes remain in that browser origin's local storage. Saving is explicit; unsaved changes are not restored after reload. Importing does not overwrite the saved run until **Save run** is used. Keep exports if you clear browser data.
 
-- Deterministic PLC scan phases: read inputs, run state machine, update timers/counters, update outputs, and log historian data.
-- Packaging-cell states: stopped, idle, starting, infeed, index conveyor, inspect, accept, reject, discharge, blocked, fault, and recovery.
-- Live tags such as `MTR_CONV_RUN`, `PE_INFEED_BLOCKED`, `CYL_REJECT_EXT`, `ALM_JAM_INFEED`, `CNT_GOOD_PARTS`, and `OEE_OVERALL`.
-- Scenario presets for normal production, high reject rate, infeed jams, motor overload, stuck photoeye, reject gate failure, maintenance recovery, and quality drift.
-- OEE breakdown with availability, performance, quality, planned runtime, unplanned downtime, ideal cycle time, actual cycle time, MTBF, and MTTR.
-- CSV, JSON, and Markdown export buttons for alarm history, production summaries, tag snapshots, OEE reports, and scenario reports.
-- A generated SQLite historian with dashboard-ready static JSON/CSV exports under `public/data/`.
+```sh
+npm run lint
+npm test
+npm run test:py
+npm run build
+npm run preview -- --host 127.0.0.1 --port 4173 --strictPort
+```
 
-## Screens
+The production preview is at `http://127.0.0.1:4173/`. Build output includes `version.json` with the actual Git revision and dirty-source flag, and `SHA256SUMS` for the deployed files. Do not identify a dirty development build as a released revision.
 
-- HMI Overview: start, stop, E-Stop, reset, auto/manual mode, status, counts, alarms, and operator instructions.
-- Digital Twin View: live packaging-cell diagram with conveyor, sensors, inspection, reject diverter, drive, PLC, HMI/SCADA, edge analytics, and moving packages.
-- Alarms Screen: active, acknowledged, and cleared alarm history with root cause hints and recovery steps.
-- Trends Screen: cycle time, throughput, OEE, reject rate, downtime, motor current, and sensor event timeline.
-- Maintenance Screen: motor runtime, jam count, MTBF, MTTR, recommendations, fault history, and sensor health.
-- Tag Browser: searchable tag table with value, source, description, last-changed time, and quality.
-- Manual Controls: jog conveyor, force sensors, toggle reject gate, step one PLC scan, pause, continue, and speed control.
-- Production Report: shift summary, OEE breakdown, downtime reasons, quality summary, and exports.
-- Architecture and Methodology: plain-language explanation of the automation data path and OEE formulas.
+## Working surfaces
 
-## Architecture Overview
+- **Cell Studio:** interactive isometric scene, signal inspector, alarms, cause/event timeline, command recording, bookmarks, branching, recipe editor, fault controls and comparisons.
+- **HMI / Digital Twin:** detailed operator controls and an alternate equipment view.
+- **Alarms / Trends / Maintenance / Tag Browser:** alarm lifecycles, recent trends, simplified maintenance indicators and searchable PLC-style signals.
+- **Manual Controls:** interlocked jogging, reject gate command, photoeye forces, clock speed and single-scan stepping.
+- **Production Report:** current-run CSV/JSON/Markdown exports plus a clearly separate offline historian fixture.
+- **Architecture / Flow / Methodology:** data flow, timers, calculations and model boundaries.
 
-The simulated field devices feed PLC tags. The PLC scan evaluates state logic, timers, counters, alarms, and output commands. HMI/SCADA screens display the live tag state. Historian points and sensor transitions support trends, while edge calculations turn downtime, throughput, and quality data into OEE and maintenance indicators.
+The clock advances in fixed 250 ms scans; display speed does not change the numerical step. Each run is bounded to ten logical minutes, 4,000 commands and 50 bookmarks. Recipe files support 100 scheduled events; the local library holds 30 custom recipes. Malformed, oversized and unsupported inputs are rejected before replacing valid work. Run schema 1 / engine 2 stores inputs rather than trusting imported counters.
 
-The Python pipeline in `analytics/historian/` creates `examples/packaging_cell_historian.sqlite`, runs SQL analysis, and writes static dashboard data into `public/data/`. The Production Report screen reads `public/data/historian_summary.json` when the site is served.
+## External inspection contract
 
-More detail is in `docs/architecture.md`, `docs/plc_logic.md`, `docs/oee_metrics.md`, and `docs/historian_pipeline.md`.
+A recipe can require external inspection events instead of the seeded quality model. A waiting package needs a schema-1 event with event/frame/package IDs, logical capture time, decision and score. Missing results hold the line; conflicting, stale and duplicate events have explicit behavior.
 
-## GitHub Pages Deployment
+To exercise the browser input, save a recipe with **External result required**, Start and wait for the package. **Prepare synthetic fixture** pauses the clock and fills the JSON editor. Submit the event; after a timeout trip, Reset and Start separately. This fixture demonstrates the protocol without implying a connected camera or FPGA. See [the full contract and example](docs/run_contract.md#external-inspection-interface).
 
-This project includes `.github/workflows/deploy.yml`. Push the project to a GitHub repository with Pages enabled for GitHub Actions, then run the workflow or push to `main`.
+## Architecture and validation
 
-The Vite config uses `base: './'` so built assets resolve from a static Pages path without hardcoding a repository name. If a deployment target requires an absolute base path, update `base` in `vite.config.ts` and rebuild.
+```text
+Recipe + timestamped commands
+            ↓
+Fixed scan → input sampling → state/timers → outputs/counts
+            ↓                         ↓
+       tags / alarms             production ledger
+            ↓                         ↓
+       scene / inspector       OEE / reports / comparisons
+            ↖ replay reconstructs the same state ↗
+```
 
-See `docs/deployment.md` for command details.
+`src/plc/scanCycle.ts` owns controls, product containment and accounting. `src/simulation/session.ts` validates and reconstructs runs. Recipes, inspection validation and comparison experiments are separate modules. UI components display these states; they do not invent motion or production counts.
 
-## Documentation
+Regression tests cover held stops in both modes, attempts to bypass recovery, one-scan faults, product conservation, slow-speed sensor behavior, an independently calculated time ledger, malformed imports, storage failure, inspection idempotency and replay/branch parity. The historian test checks SQLite exports and shift OEE against independently summed downtime intervals.
 
-- `docs/architecture.md`
-- `docs/plc_logic.md`
-- `docs/oee_metrics.md`
-- `docs/hmi_screens.md`
-- `docs/scenario_reference.md`
-- `docs/deployment.md`
-- `docs/data_exports.md`
-- `docs/historian_pipeline.md`
+## Offline historian fixture
 
-## License
+The Python/SQLite example is a separate three-hour synthetic shift, not a capture of the browser session. Its final cumulative counts and time accounting determine its shift OEE. To explicitly regenerate the bundled sample database and reports:
 
-MIT License. See `LICENSE`.
+```sh
+npm run data:historian
+```
+
+This command replaces `examples/packaging_cell_historian.sqlite` and generated fixture exports; ordinary app startup does not run it. The report screen labels this fixture separately from the current run. See [historian documentation](docs/historian_pipeline.md).
+
+## Model limits
+
+This is an educational engineering simulation. It does not commission real machinery, implement a certified safety function, or validate physical PLC wiring. Conveyor speed and quality are modeled inputs. Comparison deltas are simulated results, not measured plant gains. State residence is an observed hold; the controlled interventions test two possible constraints within this model. MTBF/MTTR displays are simple run summaries, not field reliability estimates.
+
+[Run and inspection contract](docs/run_contract.md) · [OEE accounting](docs/oee_metrics.md) · [PLC logic](docs/plc_logic.md) · [Exports](docs/data_exports.md) · [Deployment](docs/deployment.md)
+
+MIT License. See [LICENSE](LICENSE).

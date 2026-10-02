@@ -37,6 +37,9 @@ export function HmiOverview({ state, dispatch }: HmiOverviewProps) {
             <button type="button" className="command command--estop" onClick={() => dispatch({ type: 'emergencyStop' })}>
               E-Stop
             </button>
+            <button type="button" className="command" disabled={!state.emergencyStop} onClick={() => dispatch({ type: 'releaseEmergencyStop' })}>
+              Release E-Stop
+            </button>
             <button type="button" className="command" onClick={() => dispatch({ type: 'reset' })}>
               Reset
             </button>

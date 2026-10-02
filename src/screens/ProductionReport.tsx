@@ -113,8 +113,8 @@ export function ProductionReport({ state }: ProductionReportProps) {
       <section className="two-column">
         <div className="panel">
           <div className="section-heading">
-            <h2>SQLite historian export</h2>
-            <span>{historianStatus === 'ready' ? historian?.metadata.lineName : historianStatus}</span>
+            <h2>Synthetic shift fixture</h2>
+            <span>{historianStatus === 'ready' ? 'Separate offline Python/SQLite model' : historianStatus}</span>
           </div>
           {historian ? (
             <DataTable
@@ -135,7 +135,7 @@ export function ProductionReport({ state }: ProductionReportProps) {
         </div>
         <div className="panel">
           <div className="section-heading">
-            <h2>Historian downtime</h2>
+            <h2>Fixture downtime</h2>
             <span>{historian ? historian.metadata.generatedAt : 'static data'}</span>
           </div>
           <DataTable

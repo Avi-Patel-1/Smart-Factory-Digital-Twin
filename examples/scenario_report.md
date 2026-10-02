@@ -1,26 +1,22 @@
-# Motor overload event report
+# Normal production report
 
-Runtime: 30s
-Machine state: fault
-Active station: Index conveyor
+Runtime: 1m 00s
+Machine state: inspect
+Active station: Discharge
 
 ## Counts
-
-- Good parts: 4
-- Rejects: 0
-- Total parts: 4
+- Good parts: 12
+- Rejects: 1
+- Total parts: 13
 
 ## OEE
-
-- Availability: 90.0%
-- Performance: 62.2%
-- Quality: 100.0%
-- Overall OEE: 56.0%
+- Availability: 81.7%
+- Performance: 100.0%
+- Quality: 92.3%
+- Overall OEE: 75.4%
 
 ## Active alarms
-
-- ALM_MOTOR_OVERLOAD: Conveyor motor overload (critical)
+- No active alarms
 
 ## Recommended action
-
-Compare motor load trend against package density and conveyor stops.
+Keep the cell in auto and watch for early quality drift or downtime loss.

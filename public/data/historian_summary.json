@@ -10,12 +10,12 @@
     "goodParts": 906,
     "rejects": 48,
     "totalParts": 954,
-    "availability": 0.9157,
-    "performance": 0.7993,
-    "quality": 0.9643,
-    "oee": 0.7059,
+    "availability": 0.88333,
+    "performance": 0.8,
+    "quality": 0.94969,
+    "oee": 0.67111,
     "downtimeSeconds": 1260.0,
-    "throughputPpm": 5.49
+    "throughputPpm": 5.3
   },
   "oeeTrend": [
     {

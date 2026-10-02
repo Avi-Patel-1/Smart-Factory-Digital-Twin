@@ -30,11 +30,13 @@ availability * performance * quality
 
 ## Runtime Terms
 
-- Planned runtime: elapsed simulation runtime.
+- Planned runtime: time inside the production window opened by Start and closed by Stop, excluding declared planned-maintenance intervals.
 - Operating time: planned runtime minus unplanned downtime.
-- Unplanned downtime: time spent blocked, faulted, or recovering while production is expected.
+- Unplanned downtime: time spent blocked, faulted, recovering, in manual mode, or awaiting an explicit restart while production remains scheduled.
 - Ideal cycle time: configured target package cycle time.
 - Actual cycle time: operating time divided by completed parts.
+
+No scheduled production time yields zero availability/OEE. Throughput uses the entire elapsed run duration, including unscheduled idle time. See [the run contract](run_contract.md) for scan boundary and recovery semantics.
 
 ## Maintenance Approximations
 

@@ -75,6 +75,8 @@ describe('OEE calculations', () => {
       jamCount: 2,
       motorRuntimeMs: 500000,
       recoveryEvents: 2,
+      plannedRuntimeMs: 600000,
+      plannedStopMs: 0,
     }
     const metrics = calculateOeeMetrics(counters, 600000, 42, 3.7)
     expect(metrics.availability).toBeCloseTo(0.9)

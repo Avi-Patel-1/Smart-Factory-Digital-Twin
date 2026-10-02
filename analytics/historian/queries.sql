@@ -2,7 +2,7 @@
 SELECT *
 FROM oee_shift_summary;
 
--- OEE trend at five-minute buckets for dashboard charts.
+-- OEE trend at ten-minute buckets for dashboard charts.
 SELECT
   substr(sample_ts, 1, 15) || '0:00' AS bucket_start,
   ROUND(AVG(overall_oee), 4) AS oee,

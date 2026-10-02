@@ -1,6 +1,13 @@
 import type { AlarmDefinition } from '../types'
 
 export const alarmCatalog: Record<string, AlarmDefinition> = {
+  ALM_INSPECTION_MISSING: {
+    id: 'ALM_INSPECTION_MISSING', tag: 'ALM_INSPECTION_MISSING',
+    message: 'Inspection result missing', severity: 'critical',
+    rootCauseHint: 'External inspection did not provide a valid result within 2.5 seconds.',
+    recoverySteps: 'Provide a current result for the waiting package, then Reset and Start.',
+    effect: 'Motion is held; product is never silently accepted.', component: 'Inspection station',
+  },
   ALM_JAM_INFEED: {
     id: 'ALM_JAM_INFEED',
     tag: 'ALM_JAM_INFEED',

@@ -61,3 +61,7 @@ The simulation uses a deterministic scan-cycle model. Each scan advances by the 
 - `OEE_AVAILABILITY`
 - `OEE_PERFORMANCE`
 - `OEE_QUALITY`
+
+## Interlocks and containment
+
+See [the run contract](run_contract.md) for the distinct physical input, reset latch, recovery timer and run request. Stop/mode changes cannot cancel recovery. Manual jog stops at inspection until a valid result, and at the reject station until gate actuation finishes. Uncounted products are never removed from the cell. Normal photoeye diagnostics count transport exposure, excluding intentional station/startup holds; forced or scheduled stuck inputs still time out.

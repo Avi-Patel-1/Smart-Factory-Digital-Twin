@@ -15,9 +15,9 @@ export function calculateOeeMetrics(
   motorLoadPct: number,
   motorCurrentA: number,
 ): OeeMetrics {
-  const plannedRuntimeMs = Math.max(elapsedMs, 1)
+  const plannedRuntimeMs = counters.plannedRuntimeMs
   const operatingTimeMs = Math.max(plannedRuntimeMs - counters.downtimeMs, 0)
-  const availability = clampRatio(operatingTimeMs / plannedRuntimeMs)
+  const availability = plannedRuntimeMs === 0 ? 0 : clampRatio(operatingTimeMs / plannedRuntimeMs)
   const totalParts = counters.goodParts + counters.rejects
   const performance = totalParts === 0 ? 0 : clampRatio((IDEAL_CYCLE_TIME_MS * totalParts) / Math.max(operatingTimeMs, 1))
   const quality = totalParts === 0 ? 1 : clampRatio(counters.goodParts / totalParts)
@@ -35,7 +35,7 @@ export function calculateOeeMetrics(
     unplannedDowntimeMs: counters.downtimeMs,
     idealCycleTimeMs: IDEAL_CYCLE_TIME_MS,
     actualCycleTimeMs,
-    throughputPerMinute: totalParts === 0 ? 0 : totalParts / (plannedRuntimeMs / 60000),
+    throughputPerMinute: totalParts === 0 || elapsedMs === 0 ? 0 : totalParts / (elapsedMs / 60000),
     rejectRate: totalParts === 0 ? 0 : counters.rejects / totalParts,
     mtbfMs,
     mttrMs,

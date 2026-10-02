@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": 2,
+  "recipe": {
+    "id": "normal-production",
+    "name": "Normal production",
+    "description": "Balanced package flow with low reject rate and no planned disturbance.",
+    "recommendation": "Keep the cell in auto and watch for early quality drift or downtime loss.",
+    "seed": 1101,
+    "rejectRate": 0.04,
+    "qualityDriftPerMinute": 0,
+    "packageSpacing": 24,
+    "conveyorUnitsPerSecond": 18,
+    "events": []
+  },
+  "durationTicks": 240,
+  "commands": [
+    {
+      "tick": 0,
+      "action": {
+        "type": "start"
+      }
+    },
+    {
+      "tick": 72,
+      "action": {
+        "type": "injectFault",
+        "fault": "infeedJam",
+        "durationMs": 8000
+      }
+    },
+    {
+      "tick": 104,
+      "action": {
+        "type": "reset"
+      }
+    },
+    {
+      "tick": 116,
+      "action": {
+        "type": "start"
+      }
+    }
+  ],
+  "bookmarks": [
+    {
+      "tick": 0,
+      "label": "Start production"
+    },
+    {
+      "tick": 73,
+      "label": "Jam trips the cell"
+    },
+    {
+      "tick": 104,
+      "label": "Clear condition and Reset"
+    },
+    {
+      "tick": 116,
+      "label": "Separate restart"
+    },
+    {
+      "tick": 240,
+      "label": "60-second result"
+    }
+  ]
+}

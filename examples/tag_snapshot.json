@@ -5,25 +5,268 @@
     "value": false,
     "source": "PLC output",
     "description": "Conveyor motor run command",
-    "lastChanged": "T+28s",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "MTR_CONV_FAULT",
+    "type": "BOOL",
+    "value": false,
+    "source": "Drive input",
+    "description": "Conveyor drive fault feedback",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "MTR_CONV_SPEED_PCT",
+    "type": "REAL",
+    "value": 0,
+    "source": "Drive input",
+    "description": "Commanded conveyor speed percent",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "MTR_CONV_CURRENT_A",
+    "type": "REAL",
+    "value": 0,
+    "source": "Drive input",
+    "description": "Estimated motor current in amps",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "DRV_CONV_LOAD_PCT",
+    "type": "REAL",
+    "value": 0,
+    "source": "Drive input",
+    "description": "Estimated conveyor drive load",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "PE_INFEED_BLOCKED",
+    "type": "BOOL",
+    "value": false,
+    "source": "Field input",
+    "description": "Infeed photoeye blocked by package",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "PE_INSPECTION_PRESENT",
+    "type": "BOOL",
+    "value": true,
+    "source": "Field input",
+    "description": "Package present at inspection station",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "PE_REJECT_CHUTE_CLEAR",
+    "type": "BOOL",
+    "value": true,
+    "source": "Field input",
+    "description": "Reject chute clear confirmation",
+    "lastChanged": "T+39s",
+    "quality": "Good"
+  },
+  {
+    "name": "PE_EXIT_BLOCKED",
+    "type": "BOOL",
+    "value": true,
+    "source": "Field input",
+    "description": "Exit photoeye blocked by discharged package",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "CYL_REJECT_EXT",
+    "type": "BOOL",
+    "value": false,
+    "source": "PLC output",
+    "description": "Reject cylinder extend command",
+    "lastChanged": "T+39s",
+    "quality": "Good"
+  },
+  {
+    "name": "AIR_MAIN_OK",
+    "type": "BOOL",
+    "value": true,
+    "source": "Field input",
+    "description": "Main compressed air permissive",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "ALM_JAM_INFEED",
+    "type": "BOOL",
+    "value": false,
+    "source": "PLC alarm",
+    "description": "Infeed jam alarm bit",
+    "lastChanged": "T+26s",
     "quality": "Good"
   },
   {
     "name": "ALM_MOTOR_OVERLOAD",
     "type": "BOOL",
-    "value": true,
+    "value": false,
     "source": "PLC alarm",
     "description": "Motor overload alarm bit",
-    "lastChanged": "T+28s",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "ALM_SENSOR_STUCK",
+    "type": "BOOL",
+    "value": false,
+    "source": "PLC alarm",
+    "description": "Sensor stuck diagnostic alarm bit",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "ALM_REJECT_GATE_FAIL",
+    "type": "BOOL",
+    "value": false,
+    "source": "PLC alarm",
+    "description": "Reject diverter failed alarm bit",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "ALM_AIR_PRESSURE_LOW",
+    "type": "BOOL",
+    "value": false,
+    "source": "PLC alarm",
+    "description": "Compressed air loss alarm bit",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "ALM_ESTOP_ACTIVE",
+    "type": "BOOL",
+    "value": false,
+    "source": "Safety input",
+    "description": "Emergency stop alarm bit",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "ALM_INSPECTION_MISSING",
+    "type": "BOOL",
+    "value": false,
+    "source": "PLC alarm",
+    "description": "External inspection result timeout",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "CNT_GOOD_PARTS",
+    "type": "DINT",
+    "value": 12,
+    "source": "PLC counter",
+    "description": "Good packages discharged",
+    "lastChanged": "T+57s",
+    "quality": "Good"
+  },
+  {
+    "name": "CNT_REJECTS",
+    "type": "DINT",
+    "value": 1,
+    "source": "PLC counter",
+    "description": "Rejected packages diverted",
+    "lastChanged": "T+39s",
+    "quality": "Good"
+  },
+  {
+    "name": "CNT_TOTAL_PARTS",
+    "type": "DINT",
+    "value": 13,
+    "source": "PLC counter",
+    "description": "Total completed packages",
+    "lastChanged": "T+57s",
+    "quality": "Good"
+  },
+  {
+    "name": "STATE_MACHINE",
+    "type": "STRING",
+    "value": "inspect",
+    "source": "PLC register",
+    "description": "Current machine state",
+    "lastChanged": "T+59s",
+    "quality": "Good"
+  },
+  {
+    "name": "MODE_AUTO",
+    "type": "BOOL",
+    "value": true,
+    "source": "HMI command",
+    "description": "Auto mode selected",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "OEE_AVAILABILITY",
+    "type": "REAL",
+    "value": 0.8166666666666667,
+    "source": "Edge calculation",
+    "description": "Availability component of OEE",
+    "lastChanged": "T+1m 00s",
+    "quality": "Good"
+  },
+  {
+    "name": "OEE_PERFORMANCE",
+    "type": "REAL",
+    "value": 1,
+    "source": "Edge calculation",
+    "description": "Performance component of OEE",
+    "lastChanged": "T+49s",
+    "quality": "Good"
+  },
+  {
+    "name": "OEE_QUALITY",
+    "type": "REAL",
+    "value": 0.9230769230769231,
+    "source": "Edge calculation",
+    "description": "Quality component of OEE",
+    "lastChanged": "T+57s",
     "quality": "Good"
   },
   {
     "name": "OEE_OVERALL",
     "type": "REAL",
-    "value": 0.56,
+    "value": 0.7538461538461538,
     "source": "Edge calculation",
     "description": "Overall OEE value",
-    "lastChanged": "T+30s",
+    "lastChanged": "T+1m 00s",
+    "quality": "Good"
+  },
+  {
+    "name": "PLC_SCAN_MS",
+    "type": "DINT",
+    "value": 250,
+    "source": "PLC task",
+    "description": "Configured scan time in milliseconds",
+    "lastChanged": "T+0s",
+    "quality": "Good"
+  },
+  {
+    "name": "CELL_THROUGHPUT_PPM",
+    "type": "REAL",
+    "value": 13,
+    "source": "Edge calculation",
+    "description": "Completed packages per minute",
+    "lastChanged": "T+1m 00s",
+    "quality": "Good"
+  },
+  {
+    "name": "CYCLE_TIME_MS",
+    "type": "REAL",
+    "value": 3769,
+    "source": "Edge calculation",
+    "description": "Average actual cycle time",
+    "lastChanged": "T+1m 00s",
     "quality": "Good"
   }
 ]
